@@ -1,0 +1,360 @@
+:root {
+  --color-primary: #2f7a3d;
+  --color-primary-dark: #235c2e;
+  --color-accent: #4fd85c;
+  --color-denim: #5b7a9d;
+  --color-bg: #faf7f0;
+  --color-bg-tint: #f1ece0;
+  --color-surface: #ffffff;
+  --color-text: #23281f;
+  --color-text-muted: #6b6a5f;
+  --color-wood: #8a6a4f;
+  --color-header-footer: #1c2117;
+
+  --radius-pill: 999px;
+  --radius-lg: 22px;
+  --radius-sm: 12px;
+
+  --shadow-sm: 0 1px 3px rgba(28, 33, 23, 0.08);
+  --shadow-md: 0 6px 20px rgba(28, 33, 23, 0.12);
+  --shadow-lg: 0 16px 40px rgba(28, 33, 23, 0.18);
+
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.15; }
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-dark); }
+
+.btn-cta { background: var(--color-accent); color: #14260f; padding: 10px 22px; }
+
+.btn-whatsapp { background: #25d366; color: #06340f; }
+.btn-whatsapp:hover { background: #1fbd5a; }
+
+.btn-sm { padding: 9px 18px; font-size: 0.9rem; }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 240, 0.92);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.25s ease;
+}
+.site-header.scrolled { box-shadow: var(--shadow-sm); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 14px;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; color: var(--color-text); }
+.logo img { height: 40px; width: auto; }
+
+.nav-links { display: none; gap: 32px; font-weight: 600; }
+.nav-links a { color: var(--color-text); transition: color 0.2s ease; }
+.nav-links a:hover { color: var(--color-primary); }
+
+@media (min-width: 860px) {
+  .nav-links { display: flex; }
+}
+
+/* Mobile quick nav */
+.mobile-quicknav {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 20px;
+  position: sticky;
+  top: 68px;
+  z-index: 99;
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-quicknav a {
+  flex: 0 0 auto;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+@media (min-width: 860px) {
+  .mobile-quicknav { display: none; }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background: url('../img/Zapatos%20tipo%20bota%20Denim%20-%20160.000.jpg') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(20, 26, 16, 0.86) 10%, rgba(20, 26, 16, 0.55) 55%, rgba(20, 26, 16, 0.25) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  padding-block: 120px 80px;
+  color: #fff;
+}
+.hero .eyebrow {
+  color: var(--color-accent);
+  background: rgba(255,255,255,0.1);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  margin-bottom: 18px;
+  color: #fff;
+}
+.hero h1 .accent { color: var(--color-accent); }
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 480px;
+  margin-bottom: 34px;
+}
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Sections */
+.section { padding-block: 80px; }
+.section-tint { background: var(--color-bg-tint); }
+
+.section-heading {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+.section-heading h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin-bottom: 12px;
+}
+.section-heading p { color: var(--color-text-muted); font-size: 1.05rem; }
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 640px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .product-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.product-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.product-image { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.product-card:hover .product-image img { transform: scale(1.06); }
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(20, 26, 16, 0.75);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.product-body h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.product-body p { color: var(--color-text-muted); font-size: 0.92rem; flex-grow: 1; margin-bottom: 18px; }
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+/* Info section (two-column) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .info-grid { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+.bullet-list { display: flex; flex-direction: column; gap: 22px; margin-bottom: 30px; }
+.bullet-list li { display: flex; gap: 16px; align-items: flex-start; }
+.bullet-icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  font-size: 1.3rem;
+}
+.bullet-list strong { display: block; margin-bottom: 4px; font-size: 1.02rem; }
+.bullet-list p { color: var(--color-text-muted); font-size: 0.92rem; }
+
+.info-visual img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* About */
+.about-inner {
+  text-align: center;
+  max-width: 720px;
+}
+.about h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 18px; }
+.about p { color: var(--color-text-muted); font-size: 1.05rem; margin-bottom: 32px; }
+
+.badge-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.badge {
+  background: var(--color-surface);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Footer */
+.site-footer { background: var(--color-header-footer); color: rgba(255,255,255,0.75); }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  padding-block: 60px 40px;
+}
+@media (min-width: 640px) {
+  .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; }
+}
+.footer-brand .logo { color: #fff; margin-bottom: 14px; }
+.footer-brand p { max-width: 320px; font-size: 0.92rem; }
+.footer-col h4 { color: #fff; font-size: 0.95rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+.footer-col a { display: block; margin-bottom: 10px; font-size: 0.92rem; transition: color 0.2s ease; }
+.footer-col a:hover { color: var(--color-accent); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-block: 20px;
+}
+.footer-bottom p { text-align: center; font-size: 0.85rem; }
+
+/* Floating WhatsApp button */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #06340f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5), var(--shadow-lg); }
+  70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), var(--shadow-lg); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), var(--shadow-lg); }
+}
